@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {SignUpDto} from '../../dto/signUp.dto';
+import { AuthService } from '../../servicios/auth.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  usuarioRegistro: SignUpDto;
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService,private router: Router) {
+    this.usuarioRegistro = new SignUpDto('','','','UDEMYANDROID');
   }
+
+  ngOnInit() {
+    this.usuarioRegistro = new SignUpDto('','','','UDEMYANDROID');
+  }
+
+  doRegistry() {
+    this.authService.registro(this.usuarioRegistro).subscribe(respuesta => {
+        //alert('API TOKEN ' + respuesta.token);
+        this.router.navigate(["/"]);
+    });
+  }
+
 
 }

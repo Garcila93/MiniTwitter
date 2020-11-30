@@ -9,12 +9,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './servicios/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ListatweetsComponent } from './componentes/listatweets/listatweets.component';
+import { PageNotFoundComponent } from './componentes/page-not-found/page-not-found.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    ListatweetsComponent,
+    PageNotFoundComponent
   ],
 
   imports: [
@@ -23,7 +33,13 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
 
   providers: [AuthService],

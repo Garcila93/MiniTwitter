@@ -1,19 +1,27 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" class="container">
-  
-    <input type="email" [(ngModel)]="usuario.email" #em="ngModel" required [email]="true" />
+  <div class="col-6" style="margin-top: 5%; background-color:#00000094; margin-left: 2%; color: whitesmoke;">
+    <div class="form-group">
+      <label for="email" style="margin-top:3%;"> Direccion de correo electrónico:</label>
+      <input type="email" [(ngModel)]="usuario.email" #em="ngModel" required [email]="true" class="form-control mb-4" name="email"
+        placeholder="E-mail" />
 
-    <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
-      <p *ngIf="em.errors?.required">El campo email es requerido.</p>
-      <p *ngIf="em.errors?.email">El campo email debe estar bien formado.</p>
+      <div [hidden]="em.valid || em.pristine" class="alert alert-danger">
+        <p *ngIf="em.errors?.required">El campo email es requerido.</p>
+        <p *ngIf="em.errors?.email">El campo email debe estar bien formado.</p>
+      </div>
     </div>
 
-    <input type="password" [(ngModel)]="usuario.password" #pwd="ngModel" pattern="[0-9]{4,6}" required />
+    <div class="form-group" style="margin-top:3%;">
+      <label for="email">Contraseña :</label>
+      <input type="password" [(ngModel)]="usuario.password" #pwd="ngModel" pattern="[0-9]{4,6}" required
+        class="form-control mb-4" placeholder="Password" />
 
-    <div [hidden]="pwd.valid || pwd.pristine" class="alert alert-danger">
+      <div [hidden]="pwd.valid || pwd.pristine" class="alert alert-danger">
         <p *ngIf="pwd.errors?.required"> El campo contraseña es requerido.</p>
         <p *ngIf="pwd.errors?.pattern">La contraeña debe ser un número entre 4 y 6 dígitos</p>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="doLogin()" value="Login" >Iniciar sesión</button>
+    <button class="btn btn-primary" [routerLink]="['/registry']">Registro</button>
   </div>
-    <input type="button" (click)="doLogin()" value="Login" />
-
-
-  </div>
+</div>
